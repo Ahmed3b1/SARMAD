@@ -1,0 +1,467 @@
+.cart-page{
+
+    background:#f4f3f2;
+
+    min-height:100vh;
+
+    padding:80px 8%;
+}
+
+.cart-container{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:40px;
+
+    align-items:start;
+}
+
+.section-title{
+
+    color:#171e31;
+
+    margin-bottom:30px;
+
+    font-size:2rem;
+}
+
+.cart-items{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+}
+
+.cart-item{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:20px;
+
+    display:grid;
+
+    grid-template-columns:
+    130px
+    1fr
+    auto
+    auto
+    auto;
+
+    gap:20px;
+
+    align-items:center;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.05);
+
+    border:1px solid rgba(221,200,173,.25);
+}
+
+.cart-image{
+
+    height:120px;
+
+    overflow:hidden;
+
+    border-radius:20px;
+}
+
+.cart-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+}
+
+.item-category{
+
+    color:#ddc8ad;
+
+    font-size:.85rem;
+}
+
+.cart-details h3{
+
+    color:#171e31;
+
+    margin:10px 0;
+
+    display:-webkit-box;
+
+    -webkit-box-orient:vertical;
+
+    -webkit-line-clamp:2;
+
+    overflow:hidden;
+
+    overflow-wrap:anywhere;
+
+    word-break:break-word;
+}
+
+.item-price{
+
+    color:#555;
+}
+
+.cart-quantity{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+}
+
+.cart-quantity button{
+
+    width:40px;
+
+    height:40px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#171e31;
+
+    color:white;
+
+    cursor:pointer;
+}
+
+.cart-quantity input{
+
+    width:60px;
+
+    text-align:center;
+}
+
+.item-total{
+
+    font-weight:bold;
+
+    color:#171e31;
+}
+
+.remove-item{
+
+    width:40px;
+
+    height:40px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#f4f3f2;
+
+    color:#c0392b;
+
+    font-size:20px;
+
+    cursor:pointer;
+}
+
+/* SUMMARY */
+
+.cart-summary{
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:30px;
+
+    position:sticky;
+
+    top:120px;
+
+    border:1px solid rgba(221,200,173,.3);
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.06);
+}
+
+.cart-summary h3{
+
+    color:#171e31;
+
+    margin-bottom:25px;
+}
+
+.summary-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:15px;
+
+    color:#555;
+}
+
+.summary-row.total{
+
+    color:#171e31;
+
+    font-weight:bold;
+
+    font-size:1.2rem;
+
+    margin-top:20px;
+
+    padding-top:20px;
+
+    border-top:1px solid #eee;
+}
+
+.coupon-box{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:25px;
+}
+
+.coupon-box input{
+
+    flex:1;
+
+    border:1px solid #ddd;
+
+    border-radius:12px;
+
+    padding:12px;
+}
+
+.coupon-box button{
+
+    background:#ddc8ad;
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:12px;
+
+    color:#171e31;
+
+    cursor:pointer;
+}
+
+.checkout-btn{
+
+    display:block;
+
+    text-align:center;
+
+    margin-top:25px;
+
+    background:#171e31;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:18px;
+
+    border-radius:50px;
+
+    font-weight:bold;
+}
+
+.empty-cart{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:70px 30px;
+
+    text-align:center;
+
+    border:1px solid rgba(23,30,49,.08);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.05);
+
+}
+
+.empty-cart h3{
+
+    color:#171e31;
+
+    margin-bottom:10px;
+
+    font-size:28px;
+
+}
+
+.empty-cart p{
+
+    color:#777;
+
+    font-size:17px;
+
+}
+
+
+
+/* ==========================================
+   RESPONSIVE - MOBILE
+========================================== */
+
+@media(max-width:992px){
+
+    .cart-page{
+        padding:50px 5%;
+    }
+
+    .cart-container{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .cart-summary{
+        position:static; /* مفيش معنى لـ sticky لما يكون تحت العناصر مش جنبهم */
+        top:auto;
+    }
+
+}
+
+@media(max-width:576px){
+
+    .cart-page{
+        padding:30px 4%;
+    }
+
+    .section-title{
+        font-size:1.3rem;
+        margin-bottom:18px;
+    }
+
+    /* الكارت يتحول لتخطيط رأسي */
+
+    .cart-item{
+        grid-template-columns:90px 1fr;
+        grid-template-areas:
+            "image details"
+            "qty   qty"
+            "total remove";
+        gap:10px 12px;
+        padding:14px;
+        border-radius:16px;
+    }
+
+    .cart-image{
+        grid-area:image;
+        height:90px;
+        border-radius:12px;
+    }
+
+    .cart-details{
+        grid-area:details;
+    }
+
+    .cart-details h3{
+        font-size:.9rem;
+        margin:6px 0;
+    }
+
+    .item-category{
+        font-size:.7rem;
+    }
+
+    .item-price{
+        font-size:.8rem;
+    }
+
+    .cart-quantity{
+        grid-area:qty;
+        justify-content:flex-start;
+        gap:8px;
+    }
+
+    .cart-quantity button{
+        width:32px;
+        height:32px;
+        font-size:.85rem;
+    }
+
+    .cart-quantity input{
+        width:45px;
+        font-size:.85rem;
+    }
+
+    .item-total{
+        grid-area:total;
+        font-size:.85rem;
+        align-self:center;
+    }
+
+    .remove-item{
+        grid-area:remove;
+        justify-self:end;
+        width:32px;
+        height:32px;
+        font-size:16px;
+    }
+
+    /* الملخص */
+
+    .cart-summary{
+        padding:20px;
+        border-radius:20px;
+    }
+
+    .cart-summary h3{
+        font-size:1.1rem;
+        margin-bottom:15px;
+    }
+
+    .summary-row{
+        font-size:.85rem;
+        margin-bottom:10px;
+    }
+
+    .summary-row.total{
+        font-size:1rem;
+    }
+
+    .coupon-box input{
+        padding:10px;
+        font-size:.85rem;
+    }
+
+    .coupon-box button{
+        padding:10px 14px;
+        font-size:.85rem;
+    }
+
+    .checkout-btn{
+        padding:14px;
+        font-size:.9rem;
+    }
+
+    .empty-cart{
+        padding:45px 20px;
+    }
+
+    .empty-cart h3{
+        font-size:1.2rem;
+    }
+
+    .empty-cart p{
+        font-size:.85rem;
+    }
+
+}

@@ -1,0 +1,411 @@
+.best-sellers,
+.collection-section{
+
+    padding:100px 8%;
+
+    background:#f4f3f2;
+}
+
+.section-header{
+
+    text-align:center;
+
+    margin-bottom:60px;
+}
+
+.section-header span{
+
+    color:#ddc8ad;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+.section-header h2{
+
+    color:#171e31;
+
+    font-size:3rem;
+
+    margin-top:15px;
+}
+
+.section-header p{
+
+    margin-top:15px;
+
+    color:#777;
+}
+
+.slider-wrapper{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+}
+
+/* .products-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+} */
+
+.products-slider{
+
+    display:flex;
+
+    scroll-snap-type:x mandatory;
+
+    gap:25px;
+
+    overflow-x:auto;
+
+    scroll-behavior:smooth;
+
+    scrollbar-width:none;
+
+    width:100%;
+
+    padding:15px 5px;
+}
+
+.products-slider::-webkit-scrollbar{
+    display:none;
+}
+
+.slider-btn{
+
+    width:50px;
+    height:50px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:#171e31;
+
+    color:#ddc8ad;
+
+    font-size:22px;
+
+    position:absolute;
+
+    z-index:20;
+
+    transition:.3s;
+}
+
+.slider-btn:hover{
+
+    background:#ddc8ad;
+    color:#171e31;
+}
+
+.prev{
+    left:-25px;
+}
+
+.next{
+    right:-25px;
+}
+
+.product-card{
+
+    scroll-snap-align:start;
+
+    min-width:320px;
+
+    max-width:320px;
+
+    flex-shrink:0;
+
+    cursor:pointer;
+
+    background:white;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    transition:.4s;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.06);
+}
+
+.product-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.12);
+}
+
+.product-image{
+
+    position:relative;
+
+    height:280px;
+
+    background:#fafafa;
+}
+
+.product-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+.badge{
+
+    position:absolute;
+
+    top:15px;
+    right:15px;
+
+    background:#ddc8ad;
+
+    color:#171e31;
+
+    padding:8px 15px;
+
+    border-radius:50px;
+
+    font-size:.8rem;
+
+    font-weight:600;
+}
+
+.product-info{
+
+    padding:25px;
+
+    direction: rtl;
+
+    text-align: right;
+
+}
+
+.product-info h3{
+
+    color:#171e31;
+
+    margin-bottom:10px;
+
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.product-info p{
+
+    color:#777;
+
+    margin-bottom:20px;
+
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.product-footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-direction: row-reverse;
+}
+
+.price{
+
+    font-size:1.3rem;
+
+    font-weight:700;
+
+    color:#171e31;
+}
+
+.product-footer button{
+
+    border:none;
+
+    background:#171e31;
+
+    color:white;
+
+    padding:12px 18px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.product-footer button:hover{
+
+    background:#ddc8ad;
+
+    color:#171e31;
+}
+
+
+/* MOBILE - sections */
+@media(max-width:992px){
+
+    .best-sellers,
+    .collection-section{
+        padding:50px 5%;
+    }
+
+    .section-header{
+        margin-bottom:35px;
+    }
+
+    .section-header h2{
+        font-size:2rem;
+    }
+
+    .section-header span{
+        font-size:.8rem;
+        letter-spacing:1px;
+    }
+
+    .section-header p{
+        font-size:.9rem;
+    }
+
+    .products-slider{
+        gap:15px;
+        padding:10px 5px;
+    }
+
+    .product-card{
+        min-width:200px;
+        max-width:200px;
+        border-radius:16px;
+    }
+
+    .product-image{
+        height:170px;
+    }
+
+    .product-info{
+        padding:15px;
+    }
+
+    .product-info h3{
+        font-size:.95rem;
+        margin-bottom:6px;
+    }
+
+    .product-info p{
+        font-size:.8rem;
+        margin-bottom:12px;
+    }
+
+    .price{
+        font-size:1rem;
+    }
+
+    .product-footer button{
+        padding:8px 12px;
+        font-size:.8rem;
+    }
+
+    .badge{
+        top:10px;
+        right:10px;
+        padding:5px 10px;
+        font-size:.7rem;
+    }
+
+    .slider-btn{
+        width:38px;
+        height:38px;
+        font-size:16px;
+    }
+
+    .prev{
+        left:-15px;
+    }
+
+    .next{
+        right:-15px;
+    }
+
+}
+
+/* MOBILE SMALL - sections */
+@media(max-width:576px){
+
+    .best-sellers,
+    .collection-section{
+        padding:35px 4%;
+    }
+
+    .section-header{
+        margin-bottom:25px;
+    }
+
+    .section-header h2{
+        font-size:1.6rem;
+    }
+
+    .products-slider{
+        gap:12px;
+    }
+
+    .product-card{
+        min-width:165px;
+        max-width:165px;
+        border-radius:14px;
+    }
+
+    .product-image{
+        height:140px;
+    }
+
+    .product-info{
+        padding:12px;
+    }
+
+    .product-info h3{
+        font-size:.85rem;
+    }
+
+    .product-info p{
+        font-size:.72rem;
+        margin-bottom:10px;
+    }
+
+    .price{
+        font-size:.85rem;
+    }
+
+    .product-footer button{
+        padding:7px 10px;
+        font-size:.72rem;
+    }
+
+    .slider-btn{
+        display:none; /* في الشاشات الصغيرة جدًا، الاسكرول بالسحب بديل أنضف من الأزرار */
+    }
+
+}

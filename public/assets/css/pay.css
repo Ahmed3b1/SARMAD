@@ -1,0 +1,59 @@
+
+
+.payment-logo {
+    height: 40px;
+    margin-bottom: 16px;
+}
+
+.payment-header h2 {
+    color: var(--dark-midnight, #171e31);
+    font-family: 'Tajawal', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0 0 8px;
+}
+
+.payment-subtitle {
+    color: var(--gold, #ddc8ad);
+    font-size: 14px;
+    margin: 0;
+}
+
+.payment-page {
+    min-height: 100vh;
+    background: var(--off-white, #f4f3f2);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.payment-header {
+    width: 100%;
+    text-align: center;
+    padding: 50px 20px 30px;
+}
+
+.payment-frame-wrapper {
+    width: 100%;
+    max-width: 900px;
+    flex: 1;
+    background: #fff;
+    border: none;        /* إزالة أي حدود */
+    border-radius: 10px;     /* إزالة الزوايا المدورة، يبقى مسطح بالكامل */
+    box-shadow: none;
+    overflow: visible;
+}
+
+.payment-frame-wrapper iframe {
+    width: 100%;
+    height: 100vh;       /* يملأ الشاشة المتاحة بالكامل */
+    border: 0;
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .payment-page { padding: 30px 12px; }
+    .payment-frame-wrapper { min-height: 680px; }
+    .payment-frame-wrapper iframe { min-height: 680px; }
+}
