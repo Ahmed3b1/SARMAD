@@ -1,59 +1,110 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# سرمد (Sarmad)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel-based e-commerce platform for luxury watches and perfumes, built for the Egyptian market.
 
-## About Laravel
+## Overview
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Sarmad is a full-featured online store offering luxury watches and perfumes, with a fully responsive, RTL-first Arabic interface and a localized checkout experience (including Egyptian payment gateway integration).
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Live Preview
+https://sarmad.gt.tc/
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Tech Stack
 
-## Learning Laravel
+- **Backend:** Laravel 12
+- **Auth:** Laravel Breeze (Blade)
+- **Frontend:** Blade templates, custom CSS/JS (`test4.css`, `test4.js`), npm build pipeline
+- **Database:** MySQL (via XAMPP in local development)
+- **Payments:** [Paymob](https://paymob.com) — Intention API (Starter Business individual account tier)
+- **Local dev environment:** XAMPP (Windows)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## Features
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Storefront
+- Product catalog for watches and perfumes, organized by category and subcategory
+- Product detail pages with a split-screen layout (image gallery + product info)
+- Instagram-style image carousel supporting both primary product images and additional product photos
+- Full RTL Arabic layout throughout the storefront
+- Fully responsive design (navbar, product sliders, cart, checkout) across mobile and desktop
 
-## Laravel Sponsors
+### Checkout & Payments
+- Integrated with Paymob's Intention API for secure, inline/on-page payment processing
+- Webhook-based payment confirmation with HMAC (SHA512) verification
+- Dynamic payment method storage based on transaction `source_data`
+- Arabic Privacy Policy and Terms of Service pages
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Admin Panel
+- Subcategory management (linked to parent categories)
+- Order management with DataTables, including delivery status tracking (Arabic-translated via Laravel Accessors)
+- Sidebar badge counts via a Laravel View Composer
+- Full CRUD for subcategories and orders
 
-### Premium Partners
+## Project Structure & Conventions
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- Main compiled assets: `test4.js`, `test4.css`
+- Uploaded images stored under `uploads/images/`
+- Admin routes follow the `adminXxx` naming convention
+- Page-specific JavaScript is injected via Blade's `@push('scripts')`
 
-## Contributing
+## Getting Started
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Prerequisites
+- PHP >= 8.2
+- Composer
+- Node.js & npm
+- MySQL (e.g. via XAMPP)
 
-## Code of Conduct
+### Installation
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+# Clone the repository
+git clone <repository-url>
+cd sarmad
 
-## Security Vulnerabilities
+# Install PHP dependencies
+composer install
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# Install JS dependencies
+npm install
+
+# Copy environment file and configure it
+cp .env.example .env
+php artisan key:generate
+```
+
+Configure your `.env` file with your database credentials and Paymob keys:
+
+```env
+DB_DATABASE=sarmad
+DB_USERNAME=root
+DB_PASSWORD=
+
+PAYMOB_API_KEY=your_paymob_api_key
+PAYMOB_IFRAME_ID=your_iframe_id
+```
+
+```bash
+# Run migrations
+php artisan migrate
+
+# Build front-end assets
+npm run dev   # or: npm run build
+
+# Serve the application
+php artisan serve
+```
+
+### Webhook testing (local)
+For local Paymob webhook delivery, use a tunneling tool such as [ngrok](https://ngrok.com) to expose your local server, and ensure the webhook route is excluded from CSRF verification.
+
+## Hosting
+
+Recommended for production: paid cPanel-based hosting (e.g. GreenGeeks, HostArmada, ChemiCloud). Avoid free hosting providers, as they are typically incompatible with Laravel's requirements and webhook delivery.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+_Add your license here (e.g. MIT, proprietary)._
+
+## Contact
+
+_Add contact or support information here._
